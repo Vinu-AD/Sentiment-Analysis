@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sentiment Analysis</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="container">
         <h1>Sentiment Analyzer</h1>
-        <p class="subtitle">Analyze the sentiment of your text in real-time</p>
+        <!-- <p class="subtitle">Analyze the sentiment of your text in real-time</p> -->
         <div class="input-box">
             <textarea id="text-area" class="text-area" placeholder="Type something..."></textarea>
         </div>
+        <br>
         <button class="btn-analyze" onclick="analyzeText()">Analyze Sentiment</button>
         <div id="result-container" class="result-container">
             <div class="result-box">

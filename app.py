@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 from textblob import TextBlob
 from langdetect import detect
-from googletrans import Translator 
+from googletrans import Translator
 
 app = Flask(__name__)
 translator = Translator()
@@ -11,7 +11,8 @@ def detect_language(text):
     try:
         return detect(text)
     except Exception as e:
-        return 'unknown'     
+        print(f"Language detection error: {e}")  # Log the error
+        return 'unknown'
 
 def translate_to_english(text, src_lang):
     """Translate text to English from its source language."""
@@ -19,7 +20,8 @@ def translate_to_english(text, src_lang):
         translated_text = translator.translate(text, src=src_lang, dest='en').text
         return translated_text
     except Exception as e:
-        return text  
+        print(f"Translation error: {e}")  # Log the error
+        return text
 
 def analyze_sentiment(text):
     """Analyze the sentiment of the text using TextBlob."""
@@ -72,7 +74,6 @@ def classify_sentiment(text, polarity):
             return "sad"
         else:
             return "neutral"
-
 
 @app.route('/')
 def home():

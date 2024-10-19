@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Sentiment Analyzer</h1>
+        <p class="subtitle">Analyze the sentiment of your text in real-time</p>
+        <div class="input-box">
+            <textarea id="text-area" class="text-area" placeholder="Type something..."></textarea>
+        </div>
+        <button class="btn-analyze" onclick="analyzeText()">Analyze Sentiment</button>
+        <div id="result-container" class="result-container">
+            <div class="result-box">
+                <h2>Analysis Result</h2>
+                <p id="result">--</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function analyzeText() {
+            const text = document.getElementById('text-area').value;
+            const resultElement = document.getElementById('result');
+            console.log("Sending text for analysis:", text);
+
+            resultElement.innerText = "Analyzing..."; // Feedback while waiting for response
+
+            try {
+                const response = await fetch('/analyze', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ text: text })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                console.log("Received response:", data);
+                resultElement.innerText = data.sentiment;
+            } catch (error) {
+                console.error("Error during analysis:", error);
+                resultElement.innerText = "Error";
+            }
+        }
+    </script>
+</body>
+</html>

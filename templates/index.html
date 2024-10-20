@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,33 +30,31 @@
                 return;
             }
 
-            document.getElementById('resultSentiment').innerText = Sentiment: ${ result.sentiment };
-            document.getElementById('resultEmoji').innerText = Emoji: ${ result.emoji };
+            document.getElementById('resultSentiment').innerText = `Sentiment: ${result.sentiment}`;
+            document.getElementById('resultEmoji').innerText = `Emoji: ${result.emoji}`;
             if (result.translated_text !== null) {
-                document.getElementById('resultTranslation').innerText = Translated Text: ${ result.translated_text };
+                document.getElementById('resultTranslation').innerText = `Translated Text: ${result.translated_text}`;
             } else {
                 document.getElementById('resultTranslation').innerText = '';
             }
         }
     </script>
 </head>
-
 <body>
     <div class="container">
         <h1>Sentiment Analysis System</h1>
-        <textarea id="inputText" placeholder="Enter your text here..." title="Enter your text here"></textarea>
-        <select id="languageSelect" title="Select your language">
-            <option value="no_option">No Option</option>
+        <textarea id="inputText" placeholder="Enter your text here..." title="Enter your data here"></textarea>
+        <select title="Select your languagae" id="languageSelect">
             <option value="en">English</option>
             <option value="ta">Tamil</option>
-            <option value="te">Telugu</option>
-            <option value="hi">Hindi</option>
-            <option value="ml">Malayalam</option>
-            <option value="es">Spanish</option>
+            <option value="es">Telugu</option>
+            <option value="fr">Hindi</option>
+            <option value="fr">Malayalam</option>
+            <option value="fr">Spanish</option>
             <option value="fr">French</option>
-            <option value="de">German</option>
+            <option value="fr">German</option>
         </select>
-        <button onclick="analyzeSentiment()">Analyze</button>
+        <button title ="Analyze" onclick="analyzeSentiment()">Analyze</button>
         <div class="results">
             <p id="resultSentiment"></p>
             <p id="resultEmoji"></p>
@@ -65,5 +62,4 @@
         </div>
     </div>
 </body>
-
 </html>

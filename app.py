@@ -35,9 +35,27 @@ def analyze_sentiment(text):
     return blob.sentiment.polarity
 
 def classify_sentiment(text, polarity):
-    happy_keywords = ['sandhosham', 'happy', 'joy', 'cheerful', 'smile', 'santosham', 'magizhchi', 'vettri', 'win', 'super']
-    sad_keywords = ['kashtam', 'sad', 'pain', 'unhappy', 'disappointed', 'gloomy', 'hurt', 'depressed', 'cry', 'loss']
-    neutral_keywords = ['normal', 'okay', 'average', 'steady', 'chill', 'fine', 'neutral']
+    # happy_keywords = ['sandhosham', 'happy', 'joy', 'cheerful', 'smile', 'santosham', 'magizhchi', 'vettri', 'win', 'super']
+    # sad_keywords = ['kashtam', 'sad', 'pain', 'unhappy', 'disappointed', 'gloomy', 'hurt', 'depressed', 'cry', 'loss']
+    # neutral_keywords = ['normal', 'okay', 'average', 'steady', 'chill', 'fine', 'neutral']
+
+    happy_keywords = ['sandhosham', 'jolly', 'happy', 'nalla', 'perisu', 'joy', 'enjoy', 'fun', 
+        'pleased', 'excited', 'bright', 'cheerful', 'smile', 'sirippu', 'santosham', 
+        'santosha', 'arathanai', 'magizhchi', 'vettri', 'win', 'great', 'chanceless', 
+        'super', 'semma', 'better', 'nalla vela', 'thrilled', 'eager', 'nalama', 
+        'enjoyment', 'delighted', 'achieve', 'power', 'enthusiastic', 'awesome', 
+        'fantastic', 'satisfaction', 'success']
+    sad_keywords = ['kashtam', 'kastama', 'kavala', 'kavalaya', 'kadupu', 'kevalama', 'kadupa', 
+        'eruchal', 'eruchala', 'sad', 'varale', 'sogam', 'pain', 'unhappy', 'disappointed', 
+        'blue', 'dull', 'gloomy', 'hurt', 'frustrated', 'verupu', 'verupa', 'aluthom', 
+        'thavani', 'azha', 'aavum', 'kavani', 'dislike', 'depressed', 'failure', 'loss', 
+        'cry', 'loser', 'waste', 'tension', 'problem', 'issue', 'stress', 'karpu', 
+        'valikuthu', 'throat choke', 'crying', 'betrayed']
+    neutral_keywords = ['normal', 'paravala', 'pathukalam', 'okay', 'average', 'steady', 'chill', 
+        'regular', 'nothing special', 'nallavela', 'ok', 'ippodhiku', 'so-so', 
+        'medium', 'neutral', 'moderate', 'acceptable', 'nothing much', 'usual', 
+        'balanced', 'neither', 'idhellam sari', 'middle', 'manam iruka', 'fine', 
+        'decent', 'middle-ground', 'undecided', 'stable', 'normalcy']
 
     lower_text = text.lower()
     sentiment = "neutral"

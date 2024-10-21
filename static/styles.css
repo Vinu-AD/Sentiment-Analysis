@@ -73,7 +73,7 @@ select:focus {
     box-shadow: 0 0 10px #adcdf0;
 }
 
-button {
+.analyze {
     background-color: #4f6dee;
     color: rgb(245, 238, 238);
     border: none;
@@ -86,8 +86,25 @@ button {
     margin-top: 10px;
 }
 
-button:hover {
+.analyze:hover {
     background-color: #0e0ed5;
+}
+
+.speak {
+    background-color: #ee35218b;
+    color: rgb(245, 238, 238);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+.speak:hover {
+    background-color: #d50e0ed3;
 }
 
 .results {

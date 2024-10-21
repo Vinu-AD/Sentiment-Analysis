@@ -35,10 +35,6 @@ def analyze_sentiment(text):
     return blob.sentiment.polarity
 
 def classify_sentiment(text, polarity):
-    # happy_keywords = ['sandhosham', 'happy', 'joy', 'cheerful', 'smile', 'santosham', 'magizhchi', 'vettri', 'win', 'super']
-    # sad_keywords = ['kashtam', 'sad', 'pain', 'unhappy', 'disappointed', 'gloomy', 'hurt', 'depressed', 'cry', 'loss']
-    # neutral_keywords = ['normal', 'okay', 'average', 'steady', 'chill', 'fine', 'neutral']
-
     happy_keywords = ['sandhosham', 'jolly', 'happy', 'nalla', 'perisu', 'joy', 'enjoy', 'fun', 
         'pleased', 'excited', 'bright', 'cheerful', 'smile', 'sirippu', 'santosham', 
         'santosha', 'arathanai', 'magizhchi', 'vettri', 'win', 'great', 'chanceless', 

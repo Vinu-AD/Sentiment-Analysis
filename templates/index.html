@@ -6,15 +6,17 @@
     <title>Sentiment Analysis</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <script>
+        let lastTranslatedText = ""; // Variable to store the last translated text
+
         async function analyzeSentiment() {
             const text = document.getElementById('inputText').value;
             const displayLanguage = document.getElementById('languageSelect').value;
-
+    
             if (!text) {
                 alert("Please enter some text.");
                 return;
             }
-
+    
             const response = await fetch('/analyze', {
                 method: 'POST',
                 headers: {
@@ -22,39 +24,54 @@
                 },
                 body: JSON.stringify({ text: text, display_language: displayLanguage }),
             });
-
+    
             const result = await response.json();
-
+    
             if (result.error) {
                 alert(result.error);
                 return;
             }
-
+    
             document.getElementById('resultSentiment').innerText = `Sentiment: ${result.sentiment}`;
             document.getElementById('resultEmoji').innerText = `Emoji: ${result.emoji}`;
             if (result.translated_text !== null) {
                 document.getElementById('resultTranslation').innerText = `Translated Text: ${result.translated_text}`;
+                lastTranslatedText = result.translated_text; // Store the translated text
             } else {
                 document.getElementById('resultTranslation').innerText = '';
+                lastTranslatedText = ""; // Clear the stored text
             }
+        }
+
+        function speakText() {
+            if (!lastTranslatedText) {
+                alert("No translated text to speak.");
+                return;
+            }
+
+            const synth = window.speechSynthesis;
+            const utterThis = new SpeechSynthesisUtterance(lastTranslatedText);
+            utterThis.lang = document.getElementById('languageSelect').value; // Set the language based on the selected language
+            synth.speak(utterThis);
         }
     </script>
 </head>
 <body>
     <div class="container">
         <h1>Sentiment Analysis System</h1>
-        <textarea id="inputText" placeholder="Enter your text here..." title="Enter your data here"></textarea>
-        <select title="Select your languagae" id="languageSelect">
+        <textarea id="inputText" placeholder="Enter your text here..." title="Enter your text here"></textarea>
+        <select id="languageSelect" title="Select your language">
             <option value="en">English</option>
             <option value="ta">Tamil</option>
-            <option value="es">Telugu</option>
-            <option value="fr">Hindi</option>
-            <option value="fr">Malayalam</option>
-            <option value="fr">Spanish</option>
+            <option value="te">Telugu</option>
+            <option value="hi">Hindi</option>
+            <option value="ml">Malayalam</option>
+            <option value="es">Spanish</option>
             <option value="fr">French</option>
-            <option value="fr">German</option>
+            <option value="de">German</option>
         </select>
-        <button title ="Analyze" onclick="analyzeSentiment()">Analyze</button>
+        <button class="analyze" onclick="analyzeSentiment()">Analyze</button><br>
+        <button class="speak" onclick="speakText()">Read 🔊</button> 
         <div class="results">
             <p id="resultSentiment"></p>
             <p id="resultEmoji"></p>

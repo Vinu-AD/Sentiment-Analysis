@@ -40,18 +40,18 @@ def classify_sentiment(text, polarity):
         'santosha', 'arathanai', 'magizhchi', 'vettri', 'win', 'great', 'chanceless', 
         'super', 'semma', 'better', 'nalla vela', 'thrilled', 'eager', 'nalama', 
         'enjoyment', 'delighted', 'achieve', 'power', 'enthusiastic', 'awesome', 
-        'fantastic', 'satisfaction', 'success']
+        'fantastic', 'satisfaction', 'success','nalairunthuchu']
     sad_keywords = ['kashtam', 'kastama', 'kavala', 'kavalaya', 'kadupu', 'kevalama', 'kadupa', 
         'eruchal', 'eruchala', 'sad', 'varale', 'sogam', 'pain', 'unhappy', 'disappointed', 
         'blue', 'dull', 'gloomy', 'hurt', 'frustrated', 'verupu', 'verupa', 'aluthom', 
         'thavani', 'azha', 'aavum', 'kavani', 'dislike', 'depressed', 'failure', 'loss', 
         'cry', 'loser', 'waste', 'tension', 'problem', 'issue', 'stress', 'karpu', 
-        'valikuthu', 'throat choke', 'crying', 'betrayed']
+        'valikuthu', 'throat choke', 'crying', 'betrayed','died','dead','accident','sethutan']
     neutral_keywords = ['normal', 'paravala', 'pathukalam', 'okay', 'average', 'steady', 'chill', 
         'regular', 'nothing special', 'nallavela', 'ok', 'ippodhiku', 'so-so', 
         'medium', 'neutral', 'moderate', 'acceptable', 'nothing much', 'usual', 
         'balanced', 'neither', 'idhellam sari', 'middle', 'manam iruka', 'fine', 
-        'decent', 'middle-ground', 'undecided', 'stable', 'normalcy']
+        'decent', 'middle-ground', 'undecided', 'stable', 'normalcy','confusing']
 
     lower_text = text.lower()
     sentiment = "neutral"
